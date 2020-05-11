@@ -1,6 +1,8 @@
+import 'package:covid_caru/app/components/buttons/button_custom.dart';
 import 'package:covid_caru/app/components/cards/card_info_covid.dart';
 import 'package:covid_caru/app/components/cards/card_symptoms.dart';
 import 'package:covid_caru/app/components/clipper/clipper_header.dart';
+import 'package:covid_caru/app/shared/constants/strings.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,38 +22,90 @@ class _HomePageState extends State<HomePage> {
                 ClipPath(
                   clipper: ClipperHeader(),
                   child: Container(
-                    height: 280,
+                    height: 300,
                     width: double.maxFinite,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
+                          Colors.deepPurple[900],
                           Colors.deepPurple,
-                          Colors.deepPurple[900]
                         ]
                       )
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 25, left: 30),
+                            child: Column(
+                              children: <Widget>[
+                                Image.asset(pathLogo, scale: 2.2),
+                                ButtonTheme(
+                                  height: 25,
+                                  child: OutlineButton(
+                                    color: Colors.white,
+                                    onPressed: () {},
+                                    textColor: Colors.white,
+                                    borderSide: BorderSide(
+                                      color: Colors.white
+                                    ),
+                                    child: Text("Atualizar"),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 40, left: 10),
+                          child: Image.asset(pathMedicWoman),
+                        )
+                      ],
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 12, right: 12, top: 180, bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  padding: const EdgeInsets.only(left: 12, right: 12, top: 210, bottom: 20),
+                  child: Column(
                     children: <Widget>[
-                      CardInfoCovid(title: "Confirmados", value: 11, color: Colors.red),
-                      SizedBox(width: 10),
-                      CardInfoCovid(title: "Descartados", value: 12, color: Colors.grey),
-                      SizedBox(width: 10),
-                      CardInfoCovid(title: "Óbitos", value: 3, color: Colors.black),
-                      SizedBox(width: 10),
-                      CardInfoCovid(title: "Recuperados", value: 1, color: Colors.green),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          CardInfoCovid(title: "Confirmados", value: 11, color: Colors.red),
+                          SizedBox(width: 10),
+                          CardInfoCovid(title: "Suspeitos", value: 3, color: Colors.blueGrey),
+                          SizedBox(width: 10),
+                          CardInfoCovid(title: "Óbitos", value: 3, color: Colors.black),
+                          SizedBox(width: 10),
+                          CardInfoCovid(title: "Recuperados", value: 1, color: Colors.green),
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Container(
+                              height: 3,
+                              width: 10,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(width: 5),
+                            Text("${12} DESCARTADOS", style: TextStyle(color: Colors.grey, fontSize: 12)),
+                          ],
+                        )
+                      )
                     ],
                   ),
                 )
               ],
             ),
-            SizedBox(height: 30),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -68,14 +122,37 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 child: Row(
                   children: <Widget>[
-                    CardSymptoms(title: "Febre"),
-                    CardSymptoms(title: "Dor na garganta"),
-                    CardSymptoms(title: "Falta de ar"),
-                    CardSymptoms(title: "Tosse (seca ou secretiva)"),
+                    CardSymptoms(title: "Febre", pathImage: pathFebre),
+                    CardSymptoms(title: "Dor na garganta", pathImage: pathGarganta),
+                    CardSymptoms(title: "Falta de ar", pathImage: pathAr),
+                    CardSymptoms(title: "Tosse (seca ou secretiva)", pathImage: pathTosse),
                   ],
                 ),
               ),
             ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  ButtonCustom(
+                    title: "Veja aqui formas de como se previnir do Covid-19", 
+                    pathImage: pathClinic,
+                    onPressed: (){
+                    
+                    }
+                  ),
+                  ButtonCustom(
+                    title: "Veja aqui formas de como se previnir do Covid-19", 
+                    pathImage: pathPersonMask,
+                    onPressed: (){
+                    
+                    }
+                  ),
+                ],
+              ),
+            ),
+            
           ],
         ),
       ),
