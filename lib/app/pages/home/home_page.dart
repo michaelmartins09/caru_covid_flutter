@@ -1,3 +1,4 @@
+import 'package:covid_caru/app/components/buttons/button_custom.dart';
 import 'package:covid_caru/app/components/cards/card_info_covid.dart';
 import 'package:covid_caru/app/components/cards/card_symptoms.dart';
 import 'package:covid_caru/app/components/clipper/clipper_header.dart';
@@ -28,8 +29,8 @@ class _HomePageState extends State<HomePage> {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
+                          Colors.deepPurple[900],
                           Colors.deepPurple,
-                          Colors.deepPurple[900]
                         ]
                       )
                     ),
@@ -89,11 +90,10 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Container(
-                              height: 7,
-                              width: 7,
+                              height: 3,
+                              width: 10,
                               decoration: BoxDecoration(
                                 color: Colors.grey,
-                                shape: BoxShape.circle
                               ),
                             ),
                             SizedBox(width: 5),
@@ -130,6 +130,29 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  ButtonCustom(
+                    title: "Veja aqui formas de como se previnir do Covid-19", 
+                    pathImage: pathClinic,
+                    onPressed: (){
+                    
+                    }
+                  ),
+                  ButtonCustom(
+                    title: "Veja aqui formas de como se previnir do Covid-19", 
+                    pathImage: pathPersonMask,
+                    onPressed: (){
+                    
+                    }
+                  ),
+                ],
+              ),
+            ),
+            
           ],
         ),
       ),

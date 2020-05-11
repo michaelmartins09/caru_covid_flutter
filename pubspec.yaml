@@ -52,6 +52,9 @@ flutter:
     - assets/images/ar.png
     - assets/images/garganta.png
     - assets/images/febre.png
+    - assets/images/clinic.png
+    - assets/images/person_mask.png
+    - assets/icons/arrow_right.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
