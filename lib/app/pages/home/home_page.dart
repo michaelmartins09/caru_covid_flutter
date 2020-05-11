@@ -137,14 +137,14 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   ButtonCustom(
                     title: "Veja aqui formas de como se previnir do Covid-19", 
-                    pathImage: pathClinic,
+                    pathImage: pathPersonMask,
                     onPressed: (){
                     
                     }
                   ),
                   ButtonCustom(
-                    title: "Veja aqui formas de como se previnir do Covid-19", 
-                    pathImage: pathPersonMask,
+                    title: "Veja aqui informações de postos de saúde e hospital de Carutapera", 
+                    pathImage: pathClinic,
                     onPressed: (){
                     
                     }
