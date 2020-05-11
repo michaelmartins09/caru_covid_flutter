@@ -1,4 +1,6 @@
-import 'package:covid_caru/app/pages/home/clipper_header.dart';
+import 'package:covid_caru/app/components/cards/card_info_covid.dart';
+import 'package:covid_caru/app/components/cards/card_symptoms.dart';
+import 'package:covid_caru/app/components/clipper/clipper_header.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +20,7 @@ class _HomePageState extends State<HomePage> {
                 ClipPath(
                   clipper: ClipperHeader(),
                   child: Container(
-                    height: 250,
+                    height: 280,
                     width: double.maxFinite,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -33,21 +35,46 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 12, right: 12, top: 160, bottom: 20),
+                  padding: const EdgeInsets.only(left: 12, right: 12, top: 180, bottom: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      _buildInfoCovid(title: "Confirmados", value: 11, color: Colors.red),
+                      CardInfoCovid(title: "Confirmados", value: 11, color: Colors.red),
                       SizedBox(width: 10),
-                      _buildInfoCovid(title: "Descartados", value: 12, color: Colors.grey),
+                      CardInfoCovid(title: "Descartados", value: 12, color: Colors.grey),
                       SizedBox(width: 10),
-                      _buildInfoCovid(title: "Óbitos", value: 3, color: Colors.black),
+                      CardInfoCovid(title: "Óbitos", value: 3, color: Colors.black),
                       SizedBox(width: 10),
-                      _buildInfoCovid(title: "Recuperados", value: 1, color: Colors.green),
+                      CardInfoCovid(title: "Recuperados", value: 1, color: Colors.green),
                     ],
                   ),
                 )
               ],
+            ),
+            SizedBox(height: 30),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text("Sintomas mais comuns".toUpperCase(), style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey
+                )),
+              )
+            ),
+            SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
+                child: Row(
+                  children: <Widget>[
+                    CardSymptoms(title: "Febre"),
+                    CardSymptoms(title: "Dor na garganta"),
+                    CardSymptoms(title: "Falta de ar"),
+                    CardSymptoms(title: "Tosse (seca ou secretiva)"),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -55,52 +82,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _buildInfoCovid({String title, int value, Color color}){
-    return Expanded(
-      child: Container(
-        height: 100,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 10
-            )
-          ]
-        ),
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              top: 0,
-              right: 0,
-              child: Container(
-                height: 20,
-                width: 50,
-                decoration: BoxDecoration(
-                  color: color.withOpacity(0.3)??Colors.grey[200],
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50), topRight: Radius.circular(20))
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(value.toString(), textAlign: TextAlign.center, style: TextStyle(
-                    color: color, fontSize: 28, fontWeight: FontWeight.bold
-                  )),
-                  SizedBox(height: 10),
-                  Text(title.toUpperCase(), textAlign: TextAlign.center, style: TextStyle(
-                    color: color, fontSize: 10, fontWeight: FontWeight.bold
-                  )),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }
