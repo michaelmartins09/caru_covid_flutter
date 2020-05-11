@@ -7,7 +7,7 @@ class RootApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.deepPurple
+        primaryColor: Colors.deepPurple,
       ),
       home: HomePage(),
     );

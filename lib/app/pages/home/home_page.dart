@@ -68,16 +68,39 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 12, right: 12, top: 210, bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
                     children: <Widget>[
-                      CardInfoCovid(title: "Confirmados", value: 11, color: Colors.red),
-                      SizedBox(width: 10),
-                      CardInfoCovid(title: "Descartados", value: 12, color: Colors.grey),
-                      SizedBox(width: 10),
-                      CardInfoCovid(title: "Óbitos", value: 3, color: Colors.black),
-                      SizedBox(width: 10),
-                      CardInfoCovid(title: "Recuperados", value: 1, color: Colors.green),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          CardInfoCovid(title: "Confirmados", value: 11, color: Colors.red),
+                          SizedBox(width: 10),
+                          CardInfoCovid(title: "Suspeitos", value: 3, color: Colors.blueGrey),
+                          SizedBox(width: 10),
+                          CardInfoCovid(title: "Óbitos", value: 3, color: Colors.black),
+                          SizedBox(width: 10),
+                          CardInfoCovid(title: "Recuperados", value: 1, color: Colors.green),
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Container(
+                              height: 7,
+                              width: 7,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                shape: BoxShape.circle
+                              ),
+                            ),
+                            SizedBox(width: 5),
+                            Text("${12} DESCARTADOS", style: TextStyle(color: Colors.grey, fontSize: 12)),
+                          ],
+                        )
+                      )
                     ],
                   ),
                 )
@@ -99,10 +122,10 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 child: Row(
                   children: <Widget>[
-                    CardSymptoms(title: "Febre"),
-                    CardSymptoms(title: "Dor na garganta"),
-                    CardSymptoms(title: "Falta de ar"),
-                    CardSymptoms(title: "Tosse (seca ou secretiva)"),
+                    CardSymptoms(title: "Febre", pathImage: pathFebre),
+                    CardSymptoms(title: "Dor na garganta", pathImage: pathGarganta),
+                    CardSymptoms(title: "Falta de ar", pathImage: pathAr),
+                    CardSymptoms(title: "Tosse (seca ou secretiva)", pathImage: pathTosse),
                   ],
                 ),
               ),

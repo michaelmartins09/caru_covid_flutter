@@ -14,7 +14,7 @@ class CardSymptoms extends StatelessWidget {
         SizedBox(width: 10),
         Container(
           height: 80,
-          width: 180,
+          width: 160,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),
@@ -28,13 +28,20 @@ class CardSymptoms extends StatelessWidget {
           child: Row(
             children: <Widget>[
               SizedBox(width: 8),
-              FlutterLogo(),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Image.asset(pathImage),
+              ),
               Expanded(
-                child: Text(title??"text", textAlign: TextAlign.center,)
-              )
+                child: Text(title??"text", textAlign: TextAlign.center, style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ))
+              ),
+              SizedBox(width: 8),
             ],
           ),
         ),
+        SizedBox(width: 10),
       ],
     );
   }

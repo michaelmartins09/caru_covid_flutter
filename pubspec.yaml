@@ -48,6 +48,10 @@ flutter:
   assets:
     - assets/logo/logo_covid_caru.png
     - assets/images/medic_woman.png
+    - assets/images/tosse.png
+    - assets/images/ar.png
+    - assets/images/garganta.png
+    - assets/images/febre.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
