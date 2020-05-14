@@ -10,14 +10,13 @@ class ButtonCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      width: MediaQuery.of(context).size.width,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(8),
-          onTap: (){},
+    return Material(
+      color: Colors.transparent,
+      child: Container(
+        height: 100,
+        width: MediaQuery.of(context).size.width,
+        child: GestureDetector(
+          onTap: onPressed,
           child: Stack(
             children: <Widget>[
               Positioned(
