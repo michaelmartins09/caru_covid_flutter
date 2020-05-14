@@ -11,7 +11,6 @@ class CardInfoClinic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
       width: double.maxFinite,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -26,8 +25,41 @@ class CardInfoClinic extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 8),
                 Align(child: Text(name??"name here", style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 16,
+                  fontWeight: FontWeight.bold, fontSize: 14,
                 ), textAlign: TextAlign.center)),
+                Divider(),
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.location_on, color: Theme.of(context).primaryColor),
+                    SizedBox(width: 5),
+                    Expanded(child: Text(address??"Endereço não disponível", style: TextStyle(
+                      fontSize: 13 
+                    ))),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.phone, color: Theme.of(context).primaryColor),
+                    SizedBox(width: 5),
+                    Expanded(child: Text(phone??"Número não disponível", style: TextStyle(
+                      fontSize: 13 
+                    ))),
+                    SizedBox(width: 10),
+                    ButtonTheme(
+                      height: 25,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      buttonColor: Theme.of(context).primaryColor,
+                      child: RaisedButton(
+                        textColor: Colors.white,
+                        onPressed: (){},
+                        child: Text("Ligar agora"),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8),
               ],
             ),
           ),
