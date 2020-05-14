@@ -8,6 +8,7 @@ const String pathFebre = "assets/images/febre.png";
 const String pathGarganta = "assets/images/garganta.png";
 
 const String pathClinic = "assets/images/clinic.png";
+const String pathClinic2 = "assets/images/clinic2.png";
 const String pathPersonMask = "assets/images/person_mask.png";
 
 const String pathArrowIcon = "assets/icons/arrow_right.png";

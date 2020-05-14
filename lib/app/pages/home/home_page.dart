@@ -2,6 +2,8 @@ import 'package:covid_caru/app/components/buttons/button_custom.dart';
 import 'package:covid_caru/app/components/cards/card_info_covid.dart';
 import 'package:covid_caru/app/components/cards/card_symptoms.dart';
 import 'package:covid_caru/app/components/clipper/clipper_header.dart';
+import 'package:covid_caru/app/pages/avoid/avoid_covid_page.dart';
+import 'package:covid_caru/app/pages/clinic/clinic_info_page.dart';
 import 'package:covid_caru/app/shared/constants/strings.dart';
 import 'package:flutter/material.dart';
 
@@ -135,19 +137,29 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: <Widget>[
-                  ButtonCustom(
-                    title: "Veja aqui formas de como se previnir do Covid-19", 
-                    pathImage: pathClinic,
-                    onPressed: (){
-                    
-                    }
+                  Hero(
+                    tag: "tagAvoidCovid",
+                    child: ButtonCustom(
+                      title: "Veja aqui formas de como se previnir do Covid-19", 
+                      pathImage: pathPersonMask,
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => AvoidCovidPage(tagHero: "tagAvoidCovid",)
+                        ));
+                      }
+                    ),
                   ),
-                  ButtonCustom(
-                    title: "Veja aqui formas de como se previnir do Covid-19", 
-                    pathImage: pathPersonMask,
-                    onPressed: (){
-                    
-                    }
+                  Hero(
+                    tag: "tagClinicCovid",
+                    child: ButtonCustom(
+                      title: "Veja aqui informações de postos de saúde e hospital de Carutapera", 
+                      pathImage: pathClinic,
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => ClinicInfoPage(tagHero: "tagClinicCovid",)
+                        ));
+                      }
+                    ),
                   ),
                 ],
               ),
