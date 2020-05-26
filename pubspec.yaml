@@ -56,6 +56,12 @@ flutter:
     - assets/images/clinic2.png
     - assets/images/person_mask.png
     - assets/icons/arrow_right.png
+    - assets/images/avoid_mask.png
+    - assets/images/avoid_mao.png
+    - assets/images/avoid_lavar.png
+    - assets/images/avoid_contagio.png
+    - assets/images/avoid_nariz.png
+    - assets/images/avoid_person_group.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
