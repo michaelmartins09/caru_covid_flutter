@@ -42,9 +42,9 @@ class CardInfoCovid extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(value.toString(), textAlign: TextAlign.center, style: TextStyle(
-                    color: color, fontSize: 28, fontWeight: FontWeight.bold
+                    color: color, fontSize: value > 999 ? 28 : 40, fontWeight: FontWeight.bold
                   )),
-                  SizedBox(height: 10),
+                  SizedBox(height: 4),
                   Text(title.toUpperCase(), textAlign: TextAlign.center, style: TextStyle(
                     color: color, fontSize: 10, fontWeight: FontWeight.bold
                   )),

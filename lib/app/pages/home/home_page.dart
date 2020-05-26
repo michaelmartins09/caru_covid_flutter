@@ -76,9 +76,9 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          CardInfoCovid(title: "Confirmados", value: 11, color: Colors.red),
+                          CardInfoCovid(title: "Confirmados", value: 10, color: Colors.red),
                           SizedBox(width: 10),
-                          CardInfoCovid(title: "Suspeitos", value: 3, color: Colors.blueGrey),
+                          CardInfoCovid(title: "Suspeitos", value: 51, color: Colors.blueGrey),
                           SizedBox(width: 10),
                           CardInfoCovid(title: "Óbitos", value: 3, color: Colors.black),
                           SizedBox(width: 10),
