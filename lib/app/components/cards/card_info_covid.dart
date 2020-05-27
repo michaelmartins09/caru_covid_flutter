@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 class CardInfoCovid extends StatelessWidget {
   final String title;
-  final int value;
+  final String value;
   final Color color;
+  final bool isLoading;
 
-  const CardInfoCovid({Key key, this.title, this.value, this.color}) : super(key: key);
+  const CardInfoCovid({Key key, this.title, this.value, this.color, this.isLoading = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +39,18 @@ class CardInfoCovid extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.center,
-              child: Column(
+              child: !isLoading? Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(value.toString(), textAlign: TextAlign.center, style: TextStyle(
-                    color: color, fontSize: value > 999 ? 28 : 40, fontWeight: FontWeight.bold
+                    color: color, fontSize: value != '-' ? int.parse(value) > 999 ? 28 : 40 : 40, fontWeight: FontWeight.bold
                   )),
                   SizedBox(height: 4),
                   Text(title.toUpperCase(), textAlign: TextAlign.center, style: TextStyle(
                     color: color, fontSize: 10, fontWeight: FontWeight.bold
                   )),
                 ],
-              ),
+              ) : CircularProgressIndicator(),
             ),
           ],
         ),
