@@ -28,8 +28,18 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
+  intl:
+
+  cloud_firestore: ^0.13.6
+  firebase_core: ^0.4.5
+
+  # Mobx
+  mobx: ^1.1.1
+  mobx_codegen: ^1.0.3
+  flutter_mobx: ^1.1.0
 
 dev_dependencies:
+  build_runner:
   flutter_test:
     sdk: flutter
 
@@ -56,6 +66,12 @@ flutter:
     - assets/images/clinic2.png
     - assets/images/person_mask.png
     - assets/icons/arrow_right.png
+    - assets/images/avoid_mask.png
+    - assets/images/avoid_mao.png
+    - assets/images/avoid_lavar.png
+    - assets/images/avoid_contagio.png
+    - assets/images/avoid_nariz.png
+    - assets/images/avoid_person_group.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

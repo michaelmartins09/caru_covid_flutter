@@ -19,7 +19,7 @@ class CardInfoClinic extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Image.asset(pathClinic2, scale: 2),
-          SizedBox(width: 20),
+          SizedBox(width: 5),
           Expanded(
             child: Column(
               children: <Widget>[
