@@ -3,6 +3,7 @@ import 'package:covid_caru/app/components/cards/card_info_covid.dart';
 import 'package:covid_caru/app/components/cards/card_symptoms.dart';
 import 'package:covid_caru/app/components/clipper/clipper_header.dart';
 import 'package:covid_caru/app/model/cases_model.dart';
+import 'package:covid_caru/app/pages/about/about_page.dart';
 import 'package:covid_caru/app/pages/avoid/avoid_covid_page.dart';
 import 'package:covid_caru/app/pages/clinic/clinic_info_page.dart';
 import 'package:covid_caru/app/pages/home/home_controller.dart';
@@ -76,6 +77,20 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 40, left: 10),
                           child: Image.asset(pathMedicWoman),
+                        ),
+                        Positioned(
+                          top: 30,
+                          right: 10,
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(50),
+                              onTap: () => Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => AboutPage()
+                              )),
+                              child: Icon(Icons.help_outline, color: Colors.white),
+                            ),
+                          ),
                         )
                       ],
                     ),
