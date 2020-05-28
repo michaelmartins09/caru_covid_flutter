@@ -11,6 +11,9 @@ class ClinicInfoPage extends StatefulWidget {
 }
 
 class _ClinicInfoPageState extends State<ClinicInfoPage> {
+
+  String number = '98 98484-2820';
+
   @override
   Widget build(BuildContext context) {
     return Hero(
@@ -45,42 +48,43 @@ class _ClinicInfoPageState extends State<ClinicInfoPage> {
                 CardInfoClinic(
                   name: "POSTO DE SAUDE VILA DOURADO",
                   address: "VILA DOURADO",
-                  phone: "(98) 3394-1187",
+                  phone: number,
                 ),
                 SizedBox(height: 10),
                 CardInfoClinic(
                   name: "POSTO DE SAUDE MANAUS DA BEIRA",
                   address: "RUA NOSSA SENHORA DE FATIMA",
-                  phone: "(98) 3394-1187",
+                  phone: number,
                 ),
                 SizedBox(height: 10),
                 CardInfoClinic(
                   name: "CENTRO DE SAUDE SUZETE DE OLIVEIRA BORGES",
                   address: "AV PADRE MARIO RACCA",
-                  phone: "(98) 3394-1802",
+                  phone: number,
                 ),
                 SizedBox(height: 10),
                 CardInfoClinic(
                   name: "POSTO DE SAUDE SANTA RITA",
                   address: "RUA DO SERRANO",
-                  phone: "(98) 3394-1187",
+                  phone: number,
                 ),
                 SizedBox(height: 10),
                 CardInfoClinic(
                   name: "POSTO DE SAUDE FRANCISCO PLACIDO DE SOUSA",
                   address: "TRAV 1 DE JANEIRO",
+                  phone: number,
                 ),
                 SizedBox(height: 10),
                 CardInfoClinic(
                   name: "POSTO DE SAUDE LIVRAMENTO",
                   address: "AV PRINCIPAL",
-                  phone: "(98) 3394-1187",
+                  phone: number,
                 ),
                 SizedBox(height: 10),
                 CardInfoClinic(
                   name: "POSTO DE SAUDE DE SAO LOURENCO",
                   address: "RUA DE NAZARÉ",
-                  phone: "(98) 3394-1184",
+                  phone: number,
                 ),
                 SizedBox(height: 10),
               ],

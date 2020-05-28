@@ -1,12 +1,13 @@
 import 'package:covid_caru/app/shared/constants/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CardInfoClinic extends StatelessWidget {
   final String name;
   final String address;
   final String phone;
 
-  const CardInfoClinic({Key key, this.name, this.address, this.phone}) : super(key: key);
+  CardInfoClinic({Key key, this.name, this.address, this.phone}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class CardInfoClinic extends StatelessWidget {
                 Divider(),
                 Row(
                   children: <Widget>[
-                    Icon(Icons.location_on, color: Theme.of(context).primaryColor),
+                    Icon(Icons.location_on, color: Theme.of(context).primaryColor, size: 18),
                     SizedBox(width: 5),
                     Expanded(child: Text(address??"Endereço não disponível", style: TextStyle(
                       fontSize: 13 
@@ -39,7 +40,7 @@ class CardInfoClinic extends StatelessWidget {
                 ),
                 Row(
                   children: <Widget>[
-                    Icon(Icons.phone, color: Theme.of(context).primaryColor),
+                    Icon(Icons.phone, color: Theme.of(context).primaryColor, size: 18),
                     SizedBox(width: 5),
                     Expanded(child: Text(phone??"Número não disponível", style: TextStyle(
                       fontSize: 13 
@@ -53,7 +54,7 @@ class CardInfoClinic extends StatelessWidget {
                       buttonColor: Theme.of(context).primaryColor,
                       child: RaisedButton(
                         textColor: Colors.white,
-                        onPressed: (){},
+                        onPressed:() async => await _launchURL(),
                         child: Text("Ligar agora"),
                       ),
                     ),
@@ -67,5 +68,14 @@ class CardInfoClinic extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _launchURL() async {
+    String url = 'tel: +55 $phone';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
