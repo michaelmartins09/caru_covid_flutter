@@ -1,12 +1,16 @@
-import 'package:covid_caru/app/shared/constants/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:covid_caru/app/shared/constants/strings.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
+
 
 class CardInfoClinic extends StatelessWidget {
   final String name;
   final String address;
   final String phone;
 
-  const CardInfoClinic({Key key, this.name, this.address, this.phone}) : super(key: key);
+  CardInfoClinic({Key key, this.name, this.address, this.phone}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,7 @@ class CardInfoClinic extends StatelessWidget {
                 Divider(),
                 Row(
                   children: <Widget>[
-                    Icon(Icons.location_on, color: Theme.of(context).primaryColor),
+                    Icon(Icons.location_on, color: Theme.of(context).primaryColor, size: 18),
                     SizedBox(width: 5),
                     Expanded(child: Text(address??"Endereço não disponível", style: TextStyle(
                       fontSize: 13 
@@ -39,7 +43,7 @@ class CardInfoClinic extends StatelessWidget {
                 ),
                 Row(
                   children: <Widget>[
-                    Icon(Icons.phone, color: Theme.of(context).primaryColor),
+                    Icon(Icons.phone, color: Theme.of(context).primaryColor, size: 18),
                     SizedBox(width: 5),
                     Expanded(child: Text(phone??"Número não disponível", style: TextStyle(
                       fontSize: 13 
@@ -51,10 +55,26 @@ class CardInfoClinic extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20)
                       ),
                       buttonColor: Theme.of(context).primaryColor,
+                      padding: EdgeInsets.only(top: 2, bottom: 2, right: 4, left: 4),
                       child: RaisedButton(
                         textColor: Colors.white,
-                        onPressed: (){},
+                        onPressed:() async => await _launchURL(),
                         child: Text("Ligar agora"),
+                      ),
+                    ),
+                    ButtonTheme(
+                      height: 25,
+                      minWidth: 25,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      buttonColor: Theme.of(context).primaryColor,
+                      padding: EdgeInsets.only(top: 0, bottom: 2, right: 4, left: 4),
+                      child: RaisedButton(
+                        textColor: Colors.white,
+                        // onPressed:() async => await FlutterOpenWhatsapp.sendSingleMessage("55"+phone.replaceAll(" ", "").replaceAll("-", ""), "Mensagem de teste direto do app CaruCovid19@ Não responder esta mensage."),
+                        onPressed:() async => await FlutterOpenWhatsapp.sendSingleMessage("55"+phone.replaceAll(" ", "").replaceAll("-", ""), "Olá. Estou precisando de ajuda/informações sobre covid19. Vim através do aplicativo *Caru Covid 19*. Podes me ajudar?"),
+                        child: Icon(FontAwesomeIcons.whatsapp, size: 18,),
                       ),
                     ),
                   ],
@@ -63,9 +83,17 @@ class CardInfoClinic extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 20),
         ],
       ),
     );
+  }
+
+  _launchURL() async {
+    String url = 'tel: +55 $phone';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

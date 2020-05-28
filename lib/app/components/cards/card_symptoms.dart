@@ -9,12 +9,13 @@ class CardSymptoms extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Row(
       children: <Widget>[
         SizedBox(width: 10),
         Container(
           height: 80,
-          width: 160,
+          width: size.width * 0.33,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),
@@ -27,14 +28,14 @@ class CardSymptoms extends StatelessWidget {
           ),
           child: Row(
             children: <Widget>[
-              SizedBox(width: 8),
+              SizedBox(width: 6),
               Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.only(top: 8, right: 4, bottom: 8),
                 child: Image.asset(pathImage),
               ),
               Expanded(
                 child: Text(title??"text", textAlign: TextAlign.center, style: TextStyle(
-                  fontWeight: FontWeight.bold
+                  fontWeight: FontWeight.bold, fontSize: 12
                 ))
               ),
               SizedBox(width: 8),
