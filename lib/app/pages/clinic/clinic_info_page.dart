@@ -1,4 +1,5 @@
 import 'package:covid_caru/app/components/cards/card_info_clinic.dart';
+import 'package:covid_caru/app/model/clinic_model.dart';
 import 'package:flutter/material.dart';
 
 class ClinicInfoPage extends StatefulWidget {
@@ -12,7 +13,45 @@ class ClinicInfoPage extends StatefulWidget {
 
 class _ClinicInfoPageState extends State<ClinicInfoPage> {
 
-  String number = '98 98484-2820';
+  static String number = '98 98484-2820';
+
+  List<ClinicModel> listClinics = [
+    ClinicModel(
+      name: "Centro de Saúde Suzete de Oliveira Borges",
+      end: "AV Padre Mário Racca, centro",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Francisco Plácido de Souza",
+      end: "TV Primeiro de janeiro, São José",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Maria Ribeiro de Almeida Lopes",
+      end: "Rua do Cajueiro, Santa Rita",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Rosa Almeida de Araújo",
+      end: "Rua Primeiro de Maio, Vila Dourado",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Manuel Henrique de Queiroz",
+      end: "Povoado Livramento",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Moacir Braga",
+      end: "Povoado de Manaus da Beira",
+      phone: number
+    ),
+    ClinicModel(
+      name: "São Lourenço",
+      end: "Povoado do São Lourenço",
+      phone: number
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
