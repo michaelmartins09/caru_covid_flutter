@@ -18,7 +18,7 @@ class _ClinicInfoPageState extends State<ClinicInfoPage> {
   List<ClinicModel> listClinics = [
     ClinicModel(
       name: "Centro de Saúde Suzete de Oliveira Borges",
-      end: "AV Padre Mário Racca, centro",
+      end: "AV Padre Mário Racca, Centro",
       phone: number
     ),
     ClinicModel(
@@ -84,48 +84,18 @@ class _ClinicInfoPageState extends State<ClinicInfoPage> {
                   color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28
                 )),
                 SizedBox(height: 20),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE VILA DOURADO",
-                  address: "VILA DOURADO",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE MANAUS DA BEIRA",
-                  address: "RUA NOSSA SENHORA DE FATIMA",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "CENTRO DE SAUDE SUZETE DE OLIVEIRA BORGES",
-                  address: "AV PADRE MARIO RACCA",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE SANTA RITA",
-                  address: "RUA DO SERRANO",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE FRANCISCO PLACIDO DE SOUSA",
-                  address: "TRAV 1 DE JANEIRO",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE LIVRAMENTO",
-                  address: "AV PRINCIPAL",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE DE SAO LOURENCO",
-                  address: "RUA DE NAZARÉ",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
+                Column(
+                  children: listClinics.map((item) => Column(
+                    children: <Widget>[
+                      CardInfoClinic(
+                        name: item.name,
+                        address: item.end,
+                        phone: item.phone,
+                      ),
+                      SizedBox(height: 10)
+                    ],
+                  )).toList(),
+                )
               ],
             ),
           ),
