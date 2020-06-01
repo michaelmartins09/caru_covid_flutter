@@ -54,7 +54,8 @@ class _ClinicInfoPageState extends State<ClinicInfoPage> {
     ClinicModel(
       name: "Hospital Regional de Carutapera",
       end: "Rua dep. Manoel Ribeiro, Santa Luzia",
-      phone: number
+      phone: number,
+      is24h: true
     ),
   ];
 
@@ -96,6 +97,7 @@ class _ClinicInfoPageState extends State<ClinicInfoPage> {
                         name: item.name,
                         address: item.end,
                         phone: item.phone,
+                        is24h: item.is24h,
                       ),
                       SizedBox(height: 10)
                     ],
