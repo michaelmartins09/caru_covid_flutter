@@ -51,6 +51,11 @@ class _ClinicInfoPageState extends State<ClinicInfoPage> {
       end: "Povoado do São Lourenço",
       phone: number
     ),
+    ClinicModel(
+      name: "Hospital Regional de Carutapera",
+      end: "Rua dep. Manoel Ribeiro, Santa Luzia",
+      phone: number
+    ),
   ];
 
   @override
