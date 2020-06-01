@@ -7,7 +7,7 @@ class CasesCovidRepo {
   CasesCovidRepo(this.firestore);
 
   Stream<List<CasesModel>> getCases() {
-    return firestore.collection("cases").snapshots().map((doc){
+    return firestore.collection("cases").orderBy('created_at').snapshots().map((doc){
       return doc.documents.map((item){
         return CasesModel.fromDocument(item);
       }).toList();

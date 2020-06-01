@@ -219,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                           }
                           print("cases.data !=null");
                           
-                          CasesModel list = (controller.cases.data as List)[0];
+                          CasesModel list = (controller.cases.data as List).last;
 
                           return Column(
                             children: <Widget>[
