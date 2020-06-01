@@ -19,7 +19,7 @@ class _AboutPageState extends State<AboutPage> {
       body: Stack(
         alignment: Alignment.topCenter,
         children: <Widget>[
-          Image.asset(pathLogo2),
+          Image.asset(pathLogo2, scale: 1.5),
           SingleChildScrollView(
             padding: const EdgeInsets.only(top: 0, left: 20, right: 20, bottom: 20),
             physics: BouncingScrollPhysics(),
@@ -65,7 +65,25 @@ class _AboutPageState extends State<AboutPage> {
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(20)
                   ),
-                  child: Center(child: Text("Deyvison Lacerda - Médico", textAlign: TextAlign.center)),
+                  child: Center(child: Text("Deyvison Lacerda, Médico - CRM - MA 16236-1", textAlign: TextAlign.center)),
+                ),
+                SizedBox(height: 5),
+                Container(
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Center(child: Text("Gildeone Ferreira Rodrigues, Conselheiro Municipal de Saúde (CMS)", textAlign: TextAlign.center)),
+                ),
+                SizedBox(height: 5),
+                Container(
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Center(child: Text("Josielson Ribeiro, Acadêmico de Letras", textAlign: TextAlign.center)),
                 ),
 
                 SizedBox(height: 20),

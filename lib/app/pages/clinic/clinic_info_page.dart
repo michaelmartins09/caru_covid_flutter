@@ -1,4 +1,5 @@
 import 'package:covid_caru/app/components/cards/card_info_clinic.dart';
+import 'package:covid_caru/app/model/clinic_model.dart';
 import 'package:flutter/material.dart';
 
 class ClinicInfoPage extends StatefulWidget {
@@ -12,7 +13,50 @@ class ClinicInfoPage extends StatefulWidget {
 
 class _ClinicInfoPageState extends State<ClinicInfoPage> {
 
-  String number = '98 98484-2820';
+  static String number = '98 98484-2820';
+
+  List<ClinicModel> listClinics = [
+    ClinicModel(
+      name: "Centro de Saúde Suzete de Oliveira Borges",
+      end: "AV Padre Mário Racca, Centro",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Francisco Plácido de Souza",
+      end: "TV Primeiro de janeiro, São José",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Maria Ribeiro de Almeida Lopes",
+      end: "Rua do Cajueiro, Santa Rita",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Rosa Almeida de Araújo",
+      end: "Rua Primeiro de Maio, Vila Dourado",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Manuel Henrique de Queiroz",
+      end: "Povoado Livramento",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Moacir Braga",
+      end: "Povoado de Manaus da Beira",
+      phone: number
+    ),
+    ClinicModel(
+      name: "São Lourenço",
+      end: "Povoado do São Lourenço",
+      phone: number
+    ),
+    ClinicModel(
+      name: "Hospital Regional de Carutapera",
+      end: "Rua dep. Manoel Ribeiro, Santa Luzia",
+      phone: number
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -45,48 +89,18 @@ class _ClinicInfoPageState extends State<ClinicInfoPage> {
                   color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28
                 )),
                 SizedBox(height: 20),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE VILA DOURADO",
-                  address: "VILA DOURADO",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE MANAUS DA BEIRA",
-                  address: "RUA NOSSA SENHORA DE FATIMA",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "CENTRO DE SAUDE SUZETE DE OLIVEIRA BORGES",
-                  address: "AV PADRE MARIO RACCA",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE SANTA RITA",
-                  address: "RUA DO SERRANO",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE FRANCISCO PLACIDO DE SOUSA",
-                  address: "TRAV 1 DE JANEIRO",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE LIVRAMENTO",
-                  address: "AV PRINCIPAL",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
-                CardInfoClinic(
-                  name: "POSTO DE SAUDE DE SAO LOURENCO",
-                  address: "RUA DE NAZARÉ",
-                  phone: number,
-                ),
-                SizedBox(height: 10),
+                Column(
+                  children: listClinics.map((item) => Column(
+                    children: <Widget>[
+                      CardInfoClinic(
+                        name: item.name,
+                        address: item.end,
+                        phone: item.phone,
+                      ),
+                      SizedBox(height: 10)
+                    ],
+                  )).toList(),
+                )
               ],
             ),
           ),
