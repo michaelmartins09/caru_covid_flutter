@@ -26,7 +26,7 @@ class _AboutTestsCovidPageState extends State<AboutTestsCovidPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Text("Quando devo fazer o teste?", style: TextStyle(
+                Text("Quando devo fazer o teste rápido?", style: TextStyle(
                   fontSize: 28, fontWeight: FontWeight.bold
                 )),
 

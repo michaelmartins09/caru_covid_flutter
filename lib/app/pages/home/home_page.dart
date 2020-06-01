@@ -271,11 +271,12 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("Sintomas mais comuns".toUpperCase(), style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey
-                    )),
+                    Expanded(
+                      child: Text("Sintomas mais comuns".toUpperCase(), style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey
+                      )),
+                    ),
                     ButtonTheme(
                       height: 25,
                       child: OutlineButton(
@@ -288,7 +289,7 @@ class _HomePageState extends State<HomePage> {
                         borderSide: BorderSide(
                           color: Theme.of(context).primaryColor,
                         ),
-                        child: Text("Sobre testes aqui"),
+                        child: Text("Sobre teste aqui"),
                       ),
                     )
                   ],
