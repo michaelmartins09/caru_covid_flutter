@@ -7,6 +7,7 @@ import 'package:covid_caru/app/pages/about/about_page.dart';
 import 'package:covid_caru/app/pages/avoid/avoid_covid_page.dart';
 import 'package:covid_caru/app/pages/clinic/clinic_info_page.dart';
 import 'package:covid_caru/app/pages/home/home_controller.dart';
+import 'package:covid_caru/app/pages/tests/about_tests_covid_page.dart';
 import 'package:covid_caru/app/shared/constants/strings.dart';
 import 'package:covid_caru/app/shared/utils/format.dart';
 import 'package:flutter/material.dart';
@@ -218,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                           }
                           print("cases.data !=null");
                           
-                          CasesModel list = (controller.cases.data as List)[0];
+                          CasesModel list = (controller.cases.data as List).last;
 
                           return Column(
                             children: <Widget>[
@@ -268,10 +269,31 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text("Sintomas mais comuns".toUpperCase(), style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey
-                )),
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text("Sintomas mais comuns".toUpperCase(), style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey
+                      )),
+                    ),
+                    ButtonTheme(
+                      height: 25,
+                      child: OutlineButton(
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () => Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => AboutTestsCovidPage()
+                        )),
+                        textColor: Theme.of(context).primaryColor,
+                        hoverColor: Theme.of(context).primaryColor,
+                        borderSide: BorderSide(
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        child: Text("Sobre teste aqui"),
+                      ),
+                    )
+                  ],
+                ),
               )
             ),
             SingleChildScrollView(
