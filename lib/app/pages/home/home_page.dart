@@ -319,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                   Hero(
                     tag: "tagAvoidCovid",
                     child: ButtonCustom(
-                      title: "Veja aqui formas de como se previnir do Covid-19", 
+                      title: "Como se previnir do Covid-19", 
                       pathImage: pathPersonMask,
                       onPressed: (){
                         Navigator.push(context, MaterialPageRoute(
@@ -331,7 +331,7 @@ class _HomePageState extends State<HomePage> {
                   Hero(
                     tag: "tagClinicCovid",
                     child: ButtonCustom(
-                      title: "Veja aqui informações de postos de saúde e hospital de Carutapera", 
+                      title: "Informações de postos de saúde e hospital de Carutapera", 
                       pathImage: pathClinic,
                       onPressed: (){
                         Navigator.push(context, MaterialPageRoute(

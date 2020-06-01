@@ -4,16 +4,16 @@ import 'package:covid_caru/app/shared/constants/strings.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 
-
 class CardInfoClinic extends StatelessWidget {
   final String name;
   final String address;
   final String phone;
+  final bool is24h;
 
-  CardInfoClinic({Key key, this.name, this.address, this.phone}) : super(key: key);
+  CardInfoClinic({Key key, this.name, this.address, this.phone, this.is24h = false}) : super(key: key);
 
-  String openingHourMorning = "Manhã: das 7h às 12h";
-  String openingHourAfternoon = "Tarde: das 13h às 18h";
+  final String openingHourMorning = "Manhã: das 7h às 12h";
+  final String openingHourAfternoon = "Tarde: das 13h às 18h";
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class CardInfoClinic extends StatelessWidget {
                         ))),
                       ],
                     ),
-                    Row(
+                    !is24h? Row(
                       children: <Widget>[
                         Icon(Icons.access_time, color: Theme.of(context).primaryColor, size: 18),
                         SizedBox(width: 5),
@@ -56,12 +56,12 @@ class CardInfoClinic extends StatelessWidget {
                           fontSize: 13 
                         ))),
                       ],
-                    ),
+                    ) : Container(height: 0, width: 0),
                     Row(
                       children: <Widget>[
                         Icon(Icons.access_time, color: Theme.of(context).primaryColor, size: 18),
                         SizedBox(width: 5),
-                        Expanded(child: Text(openingHourAfternoon, style: TextStyle(
+                        Expanded(child: Text(is24h? 'Funcionamento 24 horas' : openingHourAfternoon, style: TextStyle(
                           fontSize: 13 
                         ))),
                       ],
