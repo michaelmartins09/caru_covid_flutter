@@ -39,7 +39,7 @@ class _AboutTestsCovidPageState extends State<AboutTestsCovidPage> {
 
                 SizedBox(height: 10),
 
-                Text("Geralmente o teste antes de 7 dias de sintoma costuma dar um falso negativo. Com isso, pessoas costumam confiar nisso podendo ocasionar em desenvolver a forma grade da doença (pneumonia viral).", textAlign: TextAlign.center),
+                Text("Geralmente o teste antes de 7 dias de sintoma costuma dar um falso negativo. Com isso, pessoas costumam confiar nisso podendo ocasionar em desenvolver a forma grave da doença (pneumonia viral).", textAlign: TextAlign.center),
                 
                 SizedBox(height: 10),
 
