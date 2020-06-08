@@ -1,4 +1,5 @@
 const String pathLogo = "assets/logo/logo_covid_caru.png";
+const String pathLogo2 = "assets/logo/logo2.png";
 
 const String pathMedicWoman = "assets/images/medic_woman.png";
 
@@ -19,3 +20,5 @@ const String pathAvoidNariz = "assets/images/avoid_nariz.png";
 const String pathAvoidPersonGroup = "assets/images/avoid_person_group.png";
 
 const String pathArrowIcon = "assets/icons/arrow_right.png";
+
+const String versionApp = "1.0.0";

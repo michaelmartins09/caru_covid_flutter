@@ -3,9 +3,11 @@ import 'package:covid_caru/app/components/cards/card_info_covid.dart';
 import 'package:covid_caru/app/components/cards/card_symptoms.dart';
 import 'package:covid_caru/app/components/clipper/clipper_header.dart';
 import 'package:covid_caru/app/model/cases_model.dart';
+import 'package:covid_caru/app/pages/about/about_page.dart';
 import 'package:covid_caru/app/pages/avoid/avoid_covid_page.dart';
 import 'package:covid_caru/app/pages/clinic/clinic_info_page.dart';
 import 'package:covid_caru/app/pages/home/home_controller.dart';
+import 'package:covid_caru/app/pages/tests/about_tests_covid_page.dart';
 import 'package:covid_caru/app/shared/constants/strings.dart';
 import 'package:covid_caru/app/shared/utils/format.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +78,20 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 40, left: 10),
                           child: Image.asset(pathMedicWoman),
+                        ),
+                        Positioned(
+                          top: 30,
+                          right: 10,
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(50),
+                              onTap: () => Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => AboutPage()
+                              )),
+                              child: Icon(Icons.help_outline, color: Colors.white),
+                            ),
+                          ),
                         )
                       ],
                     ),
@@ -253,10 +269,31 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text("Sintomas mais comuns".toUpperCase(), style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey
-                )),
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text("Sintomas mais comuns".toUpperCase(), style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18, color: Colors.grey
+                      )),
+                    ),
+                    ButtonTheme(
+                      height: 25,
+                      child: OutlineButton(
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () => Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => AboutTestsCovidPage()
+                        )),
+                        textColor: Theme.of(context).primaryColor,
+                        hoverColor: Theme.of(context).primaryColor,
+                        borderSide: BorderSide(
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        child: Text("Sobre teste aqui"),
+                      ),
+                    )
+                  ],
+                ),
               )
             ),
             SingleChildScrollView(
@@ -282,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                   Hero(
                     tag: "tagAvoidCovid",
                     child: ButtonCustom(
-                      title: "Veja aqui formas de como se previnir do Covid-19", 
+                      title: "Como se previnir do Covid-19", 
                       pathImage: pathPersonMask,
                       onPressed: (){
                         Navigator.push(context, MaterialPageRoute(
@@ -294,7 +331,7 @@ class _HomePageState extends State<HomePage> {
                   Hero(
                     tag: "tagClinicCovid",
                     child: ButtonCustom(
-                      title: "Veja aqui informações de postos de saúde e hospital de Carutapera", 
+                      title: "Informações de postos de saúde e hospital de Carutapera", 
                       pathImage: pathClinic,
                       onPressed: (){
                         Navigator.push(context, MaterialPageRoute(
