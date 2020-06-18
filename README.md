@@ -30,6 +30,8 @@
 This project was development with:
 
 - [Flutter](https://flutter.dev/)
+- [Firebase](https://firebase.google.com/)
+- [Mobx](https://pub.dev/packages/mobx)
 
 ## 💻 Project
 
