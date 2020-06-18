@@ -13,7 +13,7 @@ class ClinicInfoPage extends StatefulWidget {
 
 class _ClinicInfoPageState extends State<ClinicInfoPage> {
 
-  static String number = '98 98484-2820';
+  static String number = '98 98433-6772';
 
   List<ClinicModel> listClinics = [
     ClinicModel(
