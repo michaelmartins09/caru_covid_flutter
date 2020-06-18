@@ -103,146 +103,85 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       Observer(
                         builder: (_) {
-
-                          if (controller.cases == null) {
-                            print("cases null");
-                            return Column(
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    CardInfoCovid(title: "Confirmados", value: '-', color: Colors.red, isLoading: true),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Suspeitos", value: '-', color: Colors.blueGrey, isLoading: true),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Óbitos", value: '-', color: Colors.black, isLoading: true),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Recuperados", value: '-', color: Colors.green, isLoading: true),
-                                  ],
-                                ),
-                                SizedBox(height: 10),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 3,
-                                        width: 10,
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Text("DESCARTADOS", style: TextStyle(color: Colors.grey, fontSize: 12)),
-                                    ],
-                                  )
-                                )
-                              ],
-                            );
-                          }
-
-                          if (controller.cases.hasError) {
-                            print(controller.cases.error.toString());
-                            return Column(
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    CardInfoCovid(title: "Confirmados", value: '-', color: Colors.red),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Suspeitos", value: '-', color: Colors.blueGrey),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Óbitos", value: '-', color: Colors.black),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Recuperados", value: '-', color: Colors.green),
-                                  ],
-                                ),
-                                SizedBox(height: 10),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 3,
-                                        width: 10,
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Text("- DESCARTADOS", style: TextStyle(color: Colors.grey, fontSize: 12)),
-                                    ],
-                                  )
-                                )
-                              ],
-                            );
-                          }
-
-                          if (controller.cases.data == null) {
-                            print("data null");
-                            return Column(
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    CardInfoCovid(title: "Confirmados", value: '-', color: Colors.red, isLoading: true),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Suspeitos", value: '-', color: Colors.blueGrey, isLoading: true),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Óbitos", value: '-', color: Colors.black, isLoading: true),
-                                    SizedBox(width: 10),
-                                    CardInfoCovid(title: "Recuperados", value: '-', color: Colors.green, isLoading: true),
-                                  ],
-                                ),
-                                SizedBox(height: 10),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 3,
-                                        width: 10,
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Text("DESCARTADOS", style: TextStyle(color: Colors.grey, fontSize: 12)),
-                                    ],
-                                  )
-                                )
-                              ],
-                            );
-                          }
-                          print("cases.data !=null");
-                          
-                          CasesModel list = (controller.cases.data as List).last;
-
                           return Column(
                             children: <Widget>[
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
-                                  CardInfoCovid(title: "Confirmados", value: list.confirmed.toString(), color: Colors.red),
+                                  Observer(
+                                    builder: (_) {
+                                      if (controller.cases == null || controller.cases.data == null) {
+                                        return CardInfoCovid(title: "Confirmados", value: '-', color: Colors.red, isLoading: true);
+                                      }
+                                      if (controller.cases.hasError) {
+                                        return CardInfoCovid(title: "Confirmados", value: '-', color: Colors.red);
+                                      }
+                                      CasesModel list = (controller.cases.data as List).last;
+
+                                      return CardInfoCovid(title: "Confirmados", value: list.confirmed.toString(), color: Colors.red);
+                                    }
+                                  ),
                                   SizedBox(width: 10),
-                                  CardInfoCovid(title: "Suspeitos", value: list.suspect.toString(), color: Colors.blueGrey),
+                                  Observer(
+                                    builder: (_) {
+                                      if (controller.cases == null || controller.cases.data == null) {
+                                        return CardInfoCovid(title: "Suspeitos", value: '-', color: Colors.blueGrey, isLoading: true);
+                                      }
+                                      if (controller.cases.hasError) {
+                                        return CardInfoCovid(title: "Suspeitos", value: '-', color: Colors.blueGrey);
+                                      }
+                                      CasesModel list = (controller.cases.data as List).last;
+
+                                      return CardInfoCovid(title: "Suspeitos", value: list.suspect.toString(), color: Colors.blueGrey);
+                                    }
+                                  ),
                                   SizedBox(width: 10),
-                                  CardInfoCovid(title: "Óbitos", value: list.deaths.toString(), color: Colors.black),
+                                  Observer(
+                                    builder: (_) {
+                                      if (controller.cases == null || controller.cases.data == null) {
+                                        return CardInfoCovid(title: "Óbitos", value: '-', color: Colors.black, isLoading: true);
+                                      }
+                                      if (controller.cases.hasError) {
+                                        return CardInfoCovid(title: "Óbitos", value: '-', color: Colors.black);
+                                      }
+                                      CasesModel list = (controller.cases.data as List).last;
+
+                                      return CardInfoCovid(title: "Óbitos", value: list.deaths.toString(), color: Colors.black);
+                                    }
+                                  ),
                                   SizedBox(width: 10),
-                                  CardInfoCovid(title: "Recuperados", value: list.recovered.toString(), color: Colors.green),
+                                  Observer(
+                                    builder: (_) {
+                                      if (controller.cases == null || controller.cases.data == null) {
+                                        return CardInfoCovid(title: "Recuperados", value: '-', color: Colors.green, isLoading: true);
+                                      }
+                                      if (controller.cases.hasError) {
+                                        return CardInfoCovid(title: "Recuperados", value: '-', color: Colors.green);
+                                      }
+                                      CasesModel list = (controller.cases.data as List).last;
+
+                                      return CardInfoCovid(title: "Recuperados", value: list.recovered.toString(), color: Colors.green);
+                                    }
+                                  ),
                                 ],
                               ),
                               SizedBox(height: 10),
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: <Widget>[
                                     Icon(Icons.date_range, color: Colors.grey),
                                     SizedBox(width: 5),
-                                    Text("Atual. em ${getDateWithFormat(list.createdAt.millisecondsSinceEpoch, 'dd/MM/yyyy - kk:mm')}", style: TextStyle(color: Colors.grey, fontSize: 12)),
+                                    Observer(
+                                      builder: (_) {
+                                        if (controller.cases == null || controller.cases.data == null || controller.cases.hasError) {
+                                          return Text("carregando...", style: TextStyle(color: Colors.grey, fontSize: 12));
+                                        }
+                                        CasesModel list = (controller.cases.data as List).last;
+                                        return Text("Atual. em ${getDateWithFormat(list.createdAt.millisecondsSinceEpoch, 'dd/MM/yyyy - kk:mm')}", style: TextStyle(color: Colors.grey, fontSize: 12));
+                                      }
+                                    ),
                                     Expanded(child: Container()),
                                     Container(
                                       height: 3,
@@ -252,13 +191,20 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                     SizedBox(width: 5),
-                                    Text("${list.discarded.toString()} DESCARTADOS", style: TextStyle(color: Colors.grey, fontSize: 12)),
+                                    Observer(
+                                      builder: (_) {
+                                        if (controller.cases == null || controller.cases.data == null || controller.cases.hasError) {
+                                          return Text("DESCARTADOS", style: TextStyle(color: Colors.grey, fontSize: 12));
+                                        }
+                                        CasesModel list = (controller.cases.data as List).last;
+                                        return Text("${list.discarded.toString()} DESCARTADOS", style: TextStyle(color: Colors.grey, fontSize: 12));
+                                      }
+                                    ),
                                   ],
                                 )
                               )
                             ],
                           );
-                          
                         }
                       ),
                     ],
